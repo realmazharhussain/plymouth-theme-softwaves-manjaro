@@ -3,8 +3,8 @@ Debian's 'Softwaves' Plymouth theme with Manjaro branding instead of Debian bran
 
 ## How to install?
 
-1. [Download](https://github.com/realmazharhussain/plymouth-theme-softwaves-manjaro/archive/refs/heads/main.zip) and Extract the Zip File
-   OR
+1. [Download](https://github.com/realmazharhussain/plymouth-theme-softwaves-manjaro/archive/refs/heads/main.zip) and Extract the Zip File\
+   OR\
    Clone this repo with `git clone --depth=1 https://github.com/realmazharhussain/plymouth-theme-softwaves-manjaro.git`
 2. Go to Extracted/Cloned folder
 3. Make Sure the file '*install*' is marked as executable.
