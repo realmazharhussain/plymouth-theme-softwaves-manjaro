@@ -1,5 +1,7 @@
 #!/bin/bash
 if [ "$UID" = 0 ]; then
+  programDir="$(dirname "$0")"
+  cd "$programDir"
   echo "Installing 'softwaves-manjaro' plymouth theme ..."
   mkdir -p /usr/share/plymouth/themes
   cp -r softwaves-manjaro /usr/share/plymouth/themes/
