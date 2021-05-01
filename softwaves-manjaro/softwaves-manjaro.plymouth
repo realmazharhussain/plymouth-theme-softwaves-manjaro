@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=Softwaves Manjaro
+Description=A theme that features a white manjaro logo in a pulsing green circle, on a blue-gray background
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/softwaves-manjaro
+ScriptFile=/usr/share/plymouth/themes/softwaves-manjaro/softwaves-manjaro.script
