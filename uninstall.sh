@@ -1,15 +1,17 @@
 #!/bin/bash
 if [ "$UID" = 0 ]; then
+  [ -z "$DESTDIR" ] && DESTDIR=/
+  [ -z "$PREFIX" ] && PREFIX=/usr
   echo "Removing 'softwaves-manjaro' plymouth theme ..."
-  if [ -d /usr/share/plymouth/themes/softwaves-manjaro ]; then
-    rm -r /usr/share/plymouth/themes/softwaves-manjaro && echo "Done."
+  if [ -d "$DESTDIR"/"$PREFIX"/share/plymouth/themes/softwaves-manjaro ]; then
+    rm -r "$DESTDIR"/"$PREFIX"/share/plymouth/themes/softwaves-manjaro && echo "Done."
     if which plymouth-set-default-theme &>/dev/null; then
       echo -e "\nNote: 'softwaves-manjaro' may still be the current plymouth theme."
       echo -e "      To change plymouth theme run the command 'sudo plymouth-set-default-theme -R [theme-name]"
       echo -e "      To list all available plymouth themes run 'plymouth-set-default-theme -l'"
     elif which update-alternatives update-initramfs &>/dev/null; then
       echo "Applying default plymouth theme ..."
-      update-alternatives --remove default.plymouth /usr/share/plymouth/themes/softwaves-manjaro/softwaves-manjaro.plymouth
+      update-alternatives --remove default.plymouth "$DESTDIR"/"$PREFIX"/share/plymouth/themes/softwaves-manjaro/softwaves-manjaro.plymouth
       update-initramfs -u
       echo "Done."
     else
@@ -21,7 +23,7 @@ if [ "$UID" = 0 ]; then
   fi
 else
   if which sudo &> /dev/null; then
-    sudo "$0"
+    sudo --preserve-env=DESTDIR,PREFIX "$0"
   else
     echo "Please! Run this script as root."
     exit 1
